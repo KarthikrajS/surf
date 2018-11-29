@@ -1,14 +1,32 @@
+/* eslint-disable import/first */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
+import {createStore,applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {Provider} from 'react-redux';
+// import decode from 'jwt-decode'
+import thunk from 'redux-thunk';
+import rootReducer from './rootReducer';
 import "semantic-ui-css/semantic.min.css";
+import {userLoggedIn} from "./actions/auth";
 
 import App from './App';
 // import serviceWorker from './serviceWorker';
 
+const store = createStore(
+    rootReducer, composeWithDevTools(applyMiddleware(thunk))
+);
+if(localStorage.iotJWT){
+    // const payload = decode(localStorage.iotJWT);
+    const user = {token: localStorage.iotJWT};
+    store.dispatch(userLoggedIn(user));
+}
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </BrowserRouter>
     , document.getElementById('root')
 );
