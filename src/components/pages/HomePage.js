@@ -10,7 +10,6 @@ class HomePage extends React.Component {
 
     submit = (data) => this.props.login(data).then(() => this.props.history.push("/dashboard"));
     render() {
-
         const {isAuthenticated,logout} = this.props;
         return (<div>
             <h1>HomePage</h1>
@@ -23,15 +22,14 @@ HomePage.propTypes ={
     isAuthenticated: PropTypes.bool.isRequired,
     logout:PropTypes.func.isRequired,
     login:PropTypes.func.isRequired,
-    istory: PropTypes.shape({
+            history: PropTypes.shape({
         push:PropTypes.func.isRequired
     }).isRequired
 };
 
 function mapStateToProps(state){
     return{
-        isAuthenticated : !!state.user.token,
-
+        isAuthenticated : !!state.user.token
     }
 }
 
