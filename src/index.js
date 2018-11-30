@@ -17,9 +17,9 @@ import App from './App';
 const store = createStore(
     rootReducer, composeWithDevTools(applyMiddleware(thunk))
 );
-if(localStorage.iotJWT){
+if(localStorage.surfJWT){
     // const payload = decode(localStorage.iotJWT);
-    const user = {token: localStorage.iotJWT};
+    const user = {token: localStorage.surfJWT};
     store.dispatch(userLoggedIn(user));
 }
 ReactDOM.render(
