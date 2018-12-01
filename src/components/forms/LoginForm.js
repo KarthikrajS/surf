@@ -4,7 +4,7 @@ import { Form,Button,Message } from 'semantic-ui-react';
 import Validator from 'validator';
 import InLineError from '../messages/InLineError';
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom'
 class LoginForm extends React.Component {
 
     state={
@@ -22,9 +22,7 @@ class LoginForm extends React.Component {
         if(Object.keys(errors).length === 0){
             this.setState({loading: true});
             this.props.submit(this.state.data)
-                .catch(err => this.setState({errors: err.response.data.errors,
-                    loading:false
-                }));
+                .catch(err => this.setState({errors: err.response.data.errors, loading:false   }));
         }
     };
     validate = (data) =>
@@ -38,13 +36,14 @@ class LoginForm extends React.Component {
     render(){
 
     const {data,errors,loading} = this.state;
+    data.type = 'login';
         return (
 
             <Form onSubmit={this.onSubmit} loading={loading}>
                 {errors.global &&
                 <Message negative>
                     <Message.Header>Something went wrong</Message.Header>
-                    <p>{errors.global}</p>
+                    <p>{errors.global && <p>Retry or Sign Up for <Link to="/signup">Surf</Link></p>}</p>
                 </Message>}
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>

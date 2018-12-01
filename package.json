@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gravatar-url": "^2.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -44,5 +45,5 @@
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.15.2"
   },
-  "proxy":"http://localhost:8083"
+  "proxy": "http://localhost:8083"
 }

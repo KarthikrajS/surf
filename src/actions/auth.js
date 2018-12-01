@@ -18,3 +18,8 @@ export const logout = () => (dispatch) =>  {
     localStorage.removeItem("surfJWT");
     dispatch(userLoggedOut());
 };
+
+export const signup = data => dispatch =>api.user.signup(data).then(user=> {
+    localStorage.midoJWT= user.token;
+    dispatch(userLoggedIn(user));
+});
