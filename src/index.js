@@ -5,7 +5,7 @@ import {BrowserRouter,Route} from 'react-router-dom';
 import {createStore,applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
-// import decode from 'jwt-decode'
+import decode from 'jwt-decode';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import "semantic-ui-css/semantic.min.css";
@@ -18,8 +18,8 @@ const store = createStore(
     rootReducer, composeWithDevTools(applyMiddleware(thunk))
 );
 if(localStorage.surfJWT){
-    // const payload = decode(localStorage.iotJWT);
-    const user = {token: localStorage.surfJWT};
+    const payload = decode(localStorage.surfJWT);
+    const user = {token: localStorage.surfJWT, email:payload.email, confirmed: payload.confirmed};
     store.dispatch(userLoggedIn(user));
 }
 ReactDOM.render(

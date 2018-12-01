@@ -10,15 +10,16 @@ class DashBoardPage extends React.Component {
 
     render() {
         const {isConfirmed} = this.props;
-
         return (<div>
+            {console.log(isConfirmed)}
             {!isConfirmed && <ConfirmEmailMessage />}
         </div>)
     }
 }
 DashBoardPage.propTypes = {
     isConfirmed : PropTypes.bool.isRequired
-}
+};
+
 function mapStateToProps(state) {
     return {
         isConfirmed: !!state.user.confirmed

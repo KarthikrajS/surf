@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
 import HomePage from './components/pages/HomePage';
- import LoginPage from './components/pages/Login Page';
+import LoginPage from './components/pages/Login Page';
 import DashboardPage from './components/pages/DashBoardPage';
+import ConfirmationPage from './components/pages/ConfirmationPage';
+// import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
+ import ResetPasswordPage from './components/pages/ResetPasswordPage'
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 
@@ -18,6 +21,7 @@ const App = ({location,isAuthenticated}) =>
         <Route location={location} path="/" exact component={HomePage} />
         <GuestRoute location={location} path="/login" exact component={LoginPage} />
         <UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
+        <Route path="/confirmation/:token" location={location} exact component={ConfirmationPage}/>
 
     </div>)
 
