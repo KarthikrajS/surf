@@ -20,13 +20,13 @@ export const logout = () => (dispatch) =>  {
 };
 
 export const signup = data => dispatch =>api.user.signup(data).then(user=> {
-    localStorage.midoJWT= user.token;
+    localStorage.surfJWT= user.token;
     dispatch(userLoggedIn(user));
 });
 
 export const confirm = (token) => (dispatch) =>
     api.user.confirm(token).then(user => {
-        localStorage.midoJWT = user.token;
+        localStorage.surfJWT = user.token;
         dispatch(userLoggedIn(user));
     });
 

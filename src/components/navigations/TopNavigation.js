@@ -17,7 +17,7 @@ const TopNavigation = ({user,logout}) => (
                 </Dropdown.Menu>
             </Dropdown>
         </Menu.Menu>
-        <Menu.Item as={Link} to="/cart">Cart</Menu.Item>
+        {/*<Menu.Item as={Link} to="/cart">Cart</Menu.Item>*/}
     </Menu>);
 
 TopNavigation.propTypes ={

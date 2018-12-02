@@ -17,6 +17,7 @@ class HomePage extends React.Component {
         return (<div>
             <h1>HomePage</h1>
             {isAuthenticated ?<button onClick={()=>logout()}>Logout</button>:<div><LoginForm submit={this.loginSubmit}/>
+                <Link to="forgot_password">Forgot Password</Link>
             <SignupForm submit={this.signupSubmit}/></div>}
         </div>)
     }

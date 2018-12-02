@@ -7,7 +7,9 @@ import ConfirmEmailMessage from '../messages/confirmEmailMessage';
 
 
 class DashBoardPage extends React.Component {
+    state={
 
+    }
     render() {
         const {isConfirmed} = this.props;
         return (<div>
